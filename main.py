@@ -1,6 +1,11 @@
 from flask import Flask, request, make_response, jsonify
 from flask_cors import CORS
 import requests
+import os
+from dotenv import load_dotenv
+
+# Loading Env
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -11,6 +16,7 @@ CORS(
         r"/*": {
             "origins": [
                 "http://localhost:5173",
+                "https://main.d1yymlrl0h4srf.amplifyapp.com"
                 "https://github-auth-project-ca4p1f8l1-andrewkizito.vercel.app",
             ]
         }
@@ -18,8 +24,8 @@ CORS(
 )
 
 # Reading environment variables
-client_id = "e664ee93c6721f3a68d4"
-client_secret = "6adfaf47e2fe16a6003ea23a1dac98b8fb1e85a6"
+client_id = os.environ.get("GITHUB_CLIENT_ID")
+client_secret = os.environ.get("GITHUB_CLIENT_SECRET")
 
 
 @app.route("/auth/callback", methods=["POST"])
