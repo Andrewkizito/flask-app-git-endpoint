@@ -1,11 +1,6 @@
 from flask import Flask, request, make_response, jsonify
 from flask_cors import CORS
 import requests
-import os
-from dotenv import load_dotenv
-
-# Loading Env
-load_dotenv()
 
 app = Flask(__name__)
 
@@ -23,8 +18,8 @@ CORS(
 )
 
 # Reading environment variables
-client_id = os.environ.get("GITHUB_CLIENT_ID")
-client_secret = os.environ.get("GITHUB_CLIENT_SECRET")
+client_id = "e664ee93c6721f3a68d4"
+client_secret = "6adfaf47e2fe16a6003ea23a1dac98b8fb1e85a6"
 
 
 @app.route("/auth/callback", methods=["POST"])
