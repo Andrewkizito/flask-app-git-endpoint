@@ -1,3 +1,6 @@
 # Ignore venv folder
 venv
 __pycache__
+
+# Env files
+.env
